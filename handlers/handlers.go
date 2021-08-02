@@ -5,18 +5,19 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/tapiaw38/concejapi/middlewares"
-	"github.com/tapiaw38/concejapi/routers"
-
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
+	"github.com/tapiaw38/concejapi/middlewares"
+	"github.com/tapiaw38/concejapi/routers"
 )
 
-// Handlers is the server
+// HandlerServer is the server
 func HandlerServer() {
 	router := mux.NewRouter()
 
 	router.HandleFunc("/register", middlewares.CheckDB(routers.Register)).Methods("POST")
+	router.HandleFunc("/login", middlewares.CheckDB(routers.Login)).Methods("POST")
+	router.HandleFunc("/profile", middlewares.CheckDB(middlewares.ValidateToken(routers.ViewProfile))).Methods("GET")
 
 	PORT := os.Getenv("PORT")
 
