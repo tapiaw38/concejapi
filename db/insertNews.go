@@ -17,10 +17,11 @@ func InsertNews(n models.News) (string, bool, error) {
 	col := db.Collection("news")
 
 	register := bson.M{
-		"userId":   n.UserId,
+		"user":     n.User,
 		"title":    n.Title,
 		"category": n.Category,
 		"body":     n.Body,
+		"picture":  n.Picture,
 		"date":     n.Date,
 	}
 

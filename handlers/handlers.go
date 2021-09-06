@@ -19,6 +19,7 @@ func HandlerServer() {
 	router.HandleFunc("/login", middlewares.CheckDB(routers.Login)).Methods("POST")
 	router.HandleFunc("/profile", middlewares.CheckDB(middlewares.ValidateToken(routers.ViewProfile))).Methods("GET")
 	router.HandleFunc("/profile", middlewares.CheckDB(middlewares.ValidateToken(routers.ModifiedProfile))).Methods("PUT")
+	router.HandleFunc("/news", middlewares.CheckDB(middlewares.ValidateToken(routers.AddingNews))).Methods("POST")
 
 	PORT := os.Getenv("PORT")
 

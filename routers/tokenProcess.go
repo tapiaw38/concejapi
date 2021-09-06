@@ -37,7 +37,7 @@ func TokenProcess(tk string) (*models.Claim, bool, string, error) {
 
 		if user == true {
 			Email = claims.Email
-			UserID = claims.Id
+			UserID = claims.Id.Hex()
 		}
 
 		return claims, user, UserID, nil

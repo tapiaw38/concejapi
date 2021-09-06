@@ -8,12 +8,12 @@ import (
 
 //User struct
 type User struct {
-	Id        primitive.ObjectID `bson: "_id,omitempty" json:"id"`
-	FirstName string             `bson: "firstName" json:"fistName,omitempty"`
-	LastName  string             `bson: "lastName" json:"lastName,omitempty"`
-	DateBirth time.Time          `bson: "datehday" json:"dateBirth,omitempty"`
-	Email     string             `bson: "email" json:"email"`
-	Password  string             `bson: "password" json:"password,omitempty"`
-	Avatar    string             `bson: "avatar" json:"avatar,omitempty"`
-	Banner    string             `bson: "banner" json:"banner,omitempty"`
+	Id        primitive.ObjectID `bson:"_id,omitempty"`
+	FirstName string             `bson:"firstName,omitempty"`
+	LastName  string             `bson:"lastName,omitempty"`
+	DateBirth time.Time          `bson:"dateBirth,omitempty"`
+	Email     string             `bson:"email"`
+	Password  string             `bson:"password,omitempty"`
+	Avatar    string             `bson:"avatar,omitempty"`
+	Banner    string             `bson:"banner,omitempty"`
 }
